@@ -1,5 +1,4 @@
 from datetime import datetime
-from ..config.config_log import logger
 
 
 def generar_nombre_archivo(reporte: str) -> str:
@@ -26,7 +25,6 @@ def generar_nombre_archivo(reporte: str) -> str:
 
     except Exception as e:
         # Manejar cualquier excepción y mostrar un mensaje de error en el logger
-        logger.error(
+        raise Exception(
             f"Error al generar el nombre del archivo para el reporte '{reporte}': {str(e)}"
         )
-        return ""

@@ -19,11 +19,6 @@ def generar_reportes(directorio: str, output_directory: str) -> None:
     Raises:
     - FileNotFoundError: Si el directorio proporcionado no existe.
     - yaml.YAMLError: Si hay un problema al leer o cargar el archivo YAML.
-
-    Examples:
-    >>> directorio_de_archivos = "/ruta/al/directorio"
-    >>> directorio_de_salida = "/ruta/al/directorio_de_salida"
-    >>> generar_reportes(directorio_de_archivos, directorio_de_salida)
     """
     try:
         # Verificar si el directorio existe
@@ -48,7 +43,7 @@ def generar_reportes(directorio: str, output_directory: str) -> None:
                         df = pd.json_normalize(data)
                         dataframes.append(df)
                 except yaml.YAMLError as e:
-                    print(f"Error al leer el archivo YAML {archivo}: {e}")
+                    raise yaml.YAMLError(f"Error al leer el archivo YAML: {e}")
 
         # Concatenar todos los DataFrames en uno solo
         df_total = pd.concat(dataframes, ignore_index=True)
@@ -148,6 +143,6 @@ def generar_reportes(directorio: str, output_directory: str) -> None:
                 outfile.write("\n")  # Separador entre misiones
 
     except FileNotFoundError as e:
-        print(f"Error: {e}")
+        raise FileNotFoundError(f"No se encontró el directorio: {e}")
     except Exception as e:
-        print(f"Error inesperado: {e}")
+        raise Exception(f"Error al generar reportes: {e}")

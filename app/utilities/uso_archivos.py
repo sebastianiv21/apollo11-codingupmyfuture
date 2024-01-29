@@ -1,9 +1,11 @@
+import logging
 import os
 import shutil
-from app.config.config_logging import logger
 
 
-def mover_contenido_carpeta(carpeta_origen: str, carpeta_destino: str) -> None:
+def mover_contenido_carpeta(
+    carpeta_origen: str, carpeta_destino: str, logger: logging.Logger
+) -> None:
     """
     Mueve todo el contenido de una carpeta de origen a una carpeta de destino.
 

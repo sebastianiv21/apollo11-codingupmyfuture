@@ -1,4 +1,5 @@
 # importan librerías
+import time
 import argparse
 import logging
 import os
@@ -14,6 +15,13 @@ script_dir = os.path.dirname(__file__)
 
 # Combina la ruta del directorio del script con la ruta relativa del archivo config_app.yaml
 config_file_path = os.path.join(script_dir, "app", "config", "config_app.yaml")
+
+
+# # Ejemplo de uso del decorador
+# @periodic_task(interval=2)  # Cambia el intervalo según tus necesidades
+# def generador_archivos():
+#     # Lógica de generación de archivos
+#     print("Generando archivos...")
 
 
 class App:
@@ -46,6 +54,13 @@ class App:
 
             # ejecuta el programa
             apollo11.run()
+
+            # Ejecuta generador_archivos periódicamente
+            # generador_archivos()
+
+            # Mantén el programa en ejecución
+            while True:
+                time.sleep(1)
             # if generador_archivos:
             # llamar función principal de una clase para generarlos (entrada)
             # pass
