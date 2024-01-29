@@ -137,7 +137,7 @@ def generar_archivos_mision(
         if not os.path.exists(directorio):
             os.makedirs(directorio)
 
-        for i in range(num_archivos["minimo"], num_archivos["maximo"] + 1):
+        for i in range(num_archivos.minimo, num_archivos.maximo + 1):
             mission_code = random.choice(misiones)
             nombre_archivo = generar_nombre_archivo(mission_code, i)
             ruta_completa = os.path.join(directorio, nombre_archivo)

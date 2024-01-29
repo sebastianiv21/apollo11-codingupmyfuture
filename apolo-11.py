@@ -9,6 +9,7 @@ from app.config.config_argparse import get_app_args
 from app.config.config_logging import get_logger
 from app.main.apollo11 import Apollo11
 from app.models.config_model import ConfigModel
+from app.reportes.generar_contenido import generar_reportes
 from app.utilities.uso_yaml import leer_yaml
 
 # Ruta del directorio del script
@@ -18,6 +19,8 @@ script_dir = os.path.dirname(__file__)
 config_file_path = os.path.join(script_dir, "app", "config", "config_app.yaml")
 
 directiorio_archivos_mision = os.path.join(script_dir, "devices")
+
+UUID = "uuid"
 
 
 # # Ejemplo de uso del decorador
@@ -62,9 +65,10 @@ class App:
             while True:
                 generar_archivos_mision(
                     num_archivos=config.cantidad_archivos_generados,
-                    misiones=config.misiones.keys(),
+                    misiones=list(config.misiones.dict().keys()),
                     directorio=directiorio_archivos_mision,
                 )
+                generar_reportes(UUID, directiorio_archivos_mision)
                 time.sleep(config.periodicidad)
 
         except Exception as e:
