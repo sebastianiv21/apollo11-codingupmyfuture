@@ -197,17 +197,43 @@ git clone https://github.com/sebastianiv21/apollo11-codingupmyfuture.git
    del contenido del archivo:
 
 ```yaml
-# ciclo_simulacion: periodicidad de ejecucion en segundos
-ciclo_simulacion: 20
+# periodicidad por defecto
+periodicidad: 20
+
+# nivel logging por defecto
+logging_level: 10
 
 # cantidad de archivos generados en cada ejecucion
 cantidad_archivos_generados:
-  - minimo: 1
-  - maximo: 100
+  minimo: 1
+  maximo: 100
 
+# formato de la fecha utilizado en los archivos generados
 formato_fecha_archivo: "%d%m%Y%H%M%S"
 
-estado_dispositivo:
+# formato de la fecha mostrado en los logs de consola
+formato_fecha_log: "%d-%m-%Y %H:%M:%S"
+
+# formato de los datos en los logs de consola
+formato_contenido_log: "%(asctime)s\t%(levelname)s\t%(message)s"
+
+# lista de misiones a analizar
+misiones:
+  ORBONE: OrbitOne
+  CLNM: ColonyMoon
+  TMRS: VacMars
+  GALXONE: GalaxyTwo
+  UNKN: unknown
+
+# lista de dispositivos a analizar
+dispositivos:
+  - satelites
+  - naves
+  - trajes_espaciales
+  - vehiculos_espaciales
+
+# estados posibles para cada dispositivo
+estados_dispositivo:
   - excellent
   - good
   - warning
@@ -229,3 +255,4 @@ python apolo-11.py --periodicidad [-p periodicidad_ejecucion] --level [-l loggin
 - El valor del párametro `logging_level` es un entero y debe tener uno de los
   siguientes valores: NOTSET = 0, DEBUG = 10, INFO = 20, WARNING = 30, ERROR =
   40, CRITICAL = 50
+- Puedes usar el argumento -h para obtener mayor información.
