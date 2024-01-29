@@ -82,9 +82,9 @@ Para instalar Python, sigue estos sencillos pasos:
 `python --version`.
 ```
 
-### <p align="center"> 2. Validación de Pyp</P>
+### <p align="center"> 2. Validación de pip</P>
 
-:warning: **Atención:** Asegúrate de tener Python instalado en tu sistema, debido que Pip generalmente se incluye automáticamente con las versiones mas actualizadas. 
+:warning: **Atención:** Asegúrate de tener Python instalado en tu sistema, debido que pip generalmente se incluye automáticamente con las versiones mas actualizadas. 
 
 1. Para verificar si ya tienes pip instalado, abre la terminal y ejecuta el siguiente comando:
 
@@ -126,14 +126,21 @@ Para instalar Poetry, sigue los siguientes pasos:
 
 :bulb: **Tip:** Una vez completada la instalación, puedes verificar que Poetry se haya instalado correctamente ejecutando el siguiente comando en tu terminal:
 
-    ```bash
-    poetry --version
-    ```
+```bash
+poetry --version
+```
+
 ## <p align="center">📜 Instrucciones de uso</P>
 
-1. Para obtener el programa, clona el repositorio desde el siguiente enlace: [https://github.com/sebastianiv21/apollo11-codingupmyfuture](https://github.com/sebastianiv21/apollo11-codingupmyfuture).
+1. Para obtener la aplicación,es necesario posicionarse en el lugar de preferencia a traves de la terminal.
 
-2. Accede a la ruta del programa y dirígete al archivo config_app.yaml. Este archivo contiene las configuraciones esenciales del programa, las cuales puedes personalizar según tus necesidades. A continuacion tienes un ejemplo del contenido del archivo:
+2. A continuación utilice el siguiente comando de clonación:
+
+ ```bash
+    git clone https://github.com/sebastianiv21/apollo11-codingupmyfuture.git
+  ```
+
+3. Accede a la ruta del programa y dirígete al archivo config_app.yaml. Este archivo contiene las configuraciones esenciales del programa, las cuales puedes personalizar según tus necesidades. A continuacion tienes un ejemplo del contenido del archivo:
 
 ```yaml
 
@@ -155,12 +162,12 @@ estado_dispositivo:
   - killed
   - unknown
 ```
-3. Abre una consola o terminal y ubícate en la carpeta que contiene la aplicación. Luego, ejecuta el siguiente comando:
+4. Abre una consola o terminal y ubícate en la carpeta que contiene la aplicación. Luego, ejecuta el siguiente comando:
 
 ```bash
 python app.py ciclo_simulacion periodicidad_ejecucion
 ```
-4. Asegúrate de proporcionar los siguientes argumentos:
+5. Asegúrate de proporcionar los siguientes argumentos:
 
 - **ciclo_simulacion:** Indica la cantidad de ciclos requeridos.
 
