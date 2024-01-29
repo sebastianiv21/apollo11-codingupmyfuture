@@ -223,11 +223,5 @@ estado_dispositivo:
 python apolo-11.py --periodicidad [periodicidad_ejecucion]
 ```
 
-**NOTA**: El valor del párametro `periodicidad` debe ser un entero mayor
-
-5. Asegúrate de proporcionar los siguientes argumentos:
-
-- **ciclo_simulacion:** Indica la cantidad de ciclos requeridos.
-
-- **periodicidad_ejecucion:** Intervalo de tiempo entre cada ciclo, expresado en
-  segundos.
+**NOTA**: El valor del párametro `periodicidad` debe ser un entero mayor que
+cero.
