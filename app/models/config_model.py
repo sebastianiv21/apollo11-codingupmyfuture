@@ -2,16 +2,18 @@ from typing import Dict, List
 from pydantic import BaseModel
 
 
-class Archivo(BaseModel):
-    cantidad_minima: int
-    cantidad_maxima: int
-    formato_fecha: str
+class CantidadArchivosModel(BaseModel):
+    minimo: int
+    maximo: int
 
 
-class Config(BaseModel):
-    ciclo_simulacion: int
+class ConfigModel(BaseModel):
+    periodicidad: int
     logging_level: int
-    archivos: Archivo
-    misiones: List[Dict[str, str]]
+    cantidad_archivos_generados: CantidadArchivosModel
+    formato_fecha_archivo: str
+    formato_fecha_log: str
+    formato_contenido_log: str
+    misiones: Dict[str, str]
     dispositivos: List[str]
     estados_dispositivo: List[str]

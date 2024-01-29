@@ -1,24 +1,30 @@
-# periodicidad de ejecucion en segundos por defecto
-default_ciclo_simulacion: 20
+# periodicidad por defecto
+periodicidad: 20
 
 # nivel logging por defecto
-default_logging_level: 10
+logging_level: 10
 
 # cantidad de archivos generados en cada ejecucion
 cantidad_archivos_generados:
-  - minimo: 1
-  - maximo: 100
+  minimo: 1
+  maximo: 100
 
 # formato de la fecha utilizado en los archivos generados
 formato_fecha_archivo: "%d%m%Y%H%M%S"
 
+# formato de la fecha mostrado en los logs de consola
+formato_fecha_log: "%d-%m-%Y %H:%M:%S"
+
+# formato de los datos en los logs de consola
+formato_contenido_log: "%(asctime)s\t%(levelname)s\t%(message)s"
+
 # lista de misiones a analizar
 misiones:
-  - ORBONE: OrbitOne
-  - CLNM: ColonyMoon
-  - TMRS: VacMars
-  - GALXONE: GalaxyTwo
-  - UNKN: unknown
+  ORBONE: OrbitOne
+  CLNM: ColonyMoon
+  TMRS: VacMars
+  GALXONE: GalaxyTwo
+  UNKN: unknown
 
 # lista de dispositivos a analizar
 dispositivos:

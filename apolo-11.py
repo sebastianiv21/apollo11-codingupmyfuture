@@ -1,21 +1,42 @@
 # importan librerías
+import argparse
+import os
+from typing import Any, Dict, Optional
+from app.config.config_argparse import get_app_args
+from app.main.apollo11 import Apollo11
+from app.models.config_model import ConfigModel
+from app.utilities.uso_yaml import leer_yaml
 
-# importa la clase que contiene la lógica que se necesita
-# from utilidades import Bootcamp
+# Ruta del directorio del script
+script_dir = os.path.dirname(__file__)
 
-# coordina la ejecución del programa
+# Combina la ruta del directorio del script con la ruta relativa del archivo config_app.yaml
+config_file_path = os.path.join(script_dir, "app", "config", "config_app.yaml")
 
 
-# NOTA: en los entry points la lógica es pequeña porque se asume que ya está implementada en otro lado
-# en el entry, solo se llama y ejecuta, no se define
 class App:
     if __name__ == "__main__":
         try:
-            # TODO 0.configurar y obtener parametros
+            # Configuración de parámetros
+            plain_config: Optional[Dict[str, Any]] = leer_yaml(config_file_path)
 
-            # TODO 1.distribuir y ejecutar el proceso seleccionado
-            # instancia bootcamp = Bootcamp(config)
-            # bootcamp.run() o bootcamp.ejecutar()
+            config: ConfigModel = ConfigModel(**plain_config)
+
+            # obtiene valores de los argumentos
+            args: argparse.Namespace = get_app_args(config.logging_level)
+            print(args.periodicidad, args.logging_level)
+
+            # actualiza los valores de la configuración por defecto
+            if args.periodicidad:
+                config.periodicidad = args.periodicidad
+
+            if args.logging_level:
+                config.logging_level = args.logging_level
+
+            apollo11 = Apollo11(config)
+
+            # ejecuta el programa
+            apollo11.run()
             # if generador_archivos:
             # llamar función principal de una clase para generarlos (entrada)
             # pass
@@ -23,6 +44,5 @@ class App:
             # llamar función principal de una clase para generarlos (entrada)
             # pass
             # manejo de excepción
-            print("hola mundo")
         except Exception as e:
             print(e)
