@@ -1,6 +1,6 @@
 import os
 import shutil
-from ..config.config_log import logger
+from app.config.config_logging import logger
 
 
 def mover_contenido_carpeta(carpeta_origen: str, carpeta_destino: str) -> None:
@@ -40,18 +40,19 @@ def mover_contenido_carpeta(carpeta_origen: str, carpeta_destino: str) -> None:
         # Registrar mensaje de movimiento exitoso
         logger.info(f"Contenido de '{carpeta_origen}' se movió a '{carpeta_destino}'")
 
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         # Manejar el caso en que el archivo no se encuentre
-        logger.error(str(e))
+        raise FileNotFoundError(f"No se encontraron archivos en '{carpeta_origen}'")
 
-    except NotADirectoryError as e:
+    except NotADirectoryError:
         # Manejar el caso en que la carpeta de destino no sea un directorio válido
-        logger.error(str(e))
+        raise NotADirectoryError(
+            f"La carpeta de destino '{carpeta_destino}' no es un directorio válido."
+        )
 
     except shutil.Error as e:
         # Manejar errores relacionados con la operación de movimiento
-        logger.error(f"No se movió el contenido de '{carpeta_origen}' Error: {e}")
+        raise shutil.Error(f"Error al mover el contenido: {e}")
 
     except Exception as e:
-        # Manejar cualquier otra excepción no prevista
-        logger.error(f"Ocurrió un error inesperado: {e}")
+        raise Exception(f"Ocurrió un error al mover el contenido: {e}")

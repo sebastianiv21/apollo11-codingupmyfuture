@@ -1,5 +1,8 @@
 # periodicidad de ejecucion en segundos por defecto
-ciclo_simulacion_predeterminado: 20
+default_ciclo_simulacion: 20
+
+# nivel logging por defecto
+default_logging_level: 10
 
 # cantidad de archivos generados en cada ejecucion
 cantidad_archivos_generados:
@@ -32,9 +35,3 @@ estados_dispositivo:
   - faulty
   - killed
   - unknown
-
-# formato de la fecha en los logs
-formato_fecha_log: "%d-%m-%Y %H:%M:%S"
-
-# formato del contenido en los logs
-formato_contenido_log: "%(asctime)s\t%(levelname)s\t%(message)s"
