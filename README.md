@@ -13,7 +13,7 @@
 # <p align="center">🚀 Apollo-11: Sistema de Simulación y Monitoreo para Misiones Espaciales</p>
 
 
-<p align="center"> <img src="docs/build/html/_static/imageapollo.png" width="300" height="300"> </p>
+<p align="center"> <img src="docs/assets/imageapollo.png" width="300" height="300"> </p>
 
 
 ## <p align="center">Descripción del Proyecto</p>
@@ -27,20 +27,20 @@ La adopción de esta tecnología avanzada es crucial para asegurar la seguridad 
 
 1. 📡 **OrbitOne**: Modernizar la flota de satélites representa un avance significativo para mejorar el rendimiento y expandir las comunicaciones, no solo optimizando la cobertura, sino también mejorando considerablemente la calidad de las transmisiones y la recopilación de datos.
 
-<p align="center"><img src="docs/build/html/_static/Orbitone.png" width="200" height="200"> </p>
+<p align="center"><img src="docs/assets/Orbitone.png" width="200" height="200"> </p>
 
 
 2. 🌕 **ColonyMoon**: Destinado a establecer una colonia lunar, con la finalidad de redefinir de manera significativa la narrativa de la exploración espacial. Más allá de la notoriedad asociada con la presencia humana en nuestro satélite natural, la colonia propuesta se vislumbra como un laboratorio espacial singular para experimentación avanzada, así como una base estratégica para futuras incursiones espaciales más allá de nuestro sistema solar.
 
-<p align="center"><img src="docs/build/html/_static/Colonymoon.png" width="200" height="200"></p>
+<p align="center"><img src="docs/assets/Colonymoon.png" width="200" height="200"></p>
 
 3. 🌋 **VacMars**: Al hacer que Marte sea accesible para los turistas, se establecería una nueva era de colaboración público-privada en la exploración espacial, creando una sinergia entre los intereses comerciales y la investigación científica.
 
-<p align="center"><img src="docs/build/html/_static/Vacmars.png" width="200" height="200"></p>
+<p align="center"><img src="docs/assets/Vacmars.png" width="200" height="200"></p>
 
 4. 🌌 **GalaxyTwo**: La exploración de otras galaxias representa un salto gigantesco en nuestro entendimiento del universo, no solo se centraría en la expansión del conocimiento científico, sino que también podría inspirar nuevas formas de colaboración internacional en la búsqueda de respuestas a las preguntas fundamentales sobre el origen y la naturaleza del cosmos.
 
-<p align="center"><img src="docs/build/html/_static/Galaxytwo.png" width="200" height="200"></p>
+<p align="center"><img src="docs/assets/Galaxytwo.png" width="200" height="200"></p>
 
 ## <p align="center">💻 Equipo de especialistas</p>
 
@@ -52,7 +52,7 @@ La adopción de esta tecnología avanzada es crucial para asegurar la seguridad 
 
 ## <p align="center">🏢 Centro de operaciones: Cabo Cañaveral</P>
 
-<p align="center"><img src="docs/build/html/_static/Cañaveral.jpg "width="200" height="200"></p>
+<p align="center"><img src="docs/assets/Cañaveral.jpg "width="200" height="200"></p>
 
 Ubicado en la costa este de Florida, Estados Unidos, es reconocido por ser la sede del Centro Espacial Kennedy (CEK), una instalación fundamental para la exploración espacial. A lo largo de los años, ha contribuido significativamente al desarrollo de la exploración espacial, siendo crucial en el programa Apolo y en el lanzamiento de misiones del transbordador espacial que facilitaron la construcción y mantenimiento de la Estación Espacial Internacional (EEI). 
 
@@ -131,7 +131,7 @@ Para instalar Poetry, sigue los siguientes pasos:
     ```
 ## <p align="center">📜 Instrucciones de uso</P>
 
-1. Para obtener el programa, clona el repositorio desde el siguiente enlace: [https://github.com/sebastianiv21/apollo11](https://github.com/sebastianiv21/apollo11).
+1. Para obtener el programa, clona el repositorio desde el siguiente enlace: [https://github.com/sebastianiv21/apollo11-codingupmyfuture](https://github.com/sebastianiv21/apollo11-codingupmyfuture).
 
 2. Accede a la ruta del programa y dirígete al archivo config_app.yaml. Este archivo contiene las configuraciones esenciales del programa, las cuales puedes personalizar según tus necesidades. A continuacion tienes un ejemplo del contenido del archivo:
 
