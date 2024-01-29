@@ -4,6 +4,7 @@ import argparse
 import logging
 import os
 from typing import Any, Dict, Optional
+from app.archivos.funciones import generar_archivos_mision
 from app.config.config_argparse import get_app_args
 from app.config.config_logging import get_logger
 from app.main.apollo11 import Apollo11
@@ -15,6 +16,8 @@ script_dir = os.path.dirname(__file__)
 
 # Combina la ruta del directorio del script con la ruta relativa del archivo config_app.yaml
 config_file_path = os.path.join(script_dir, "app", "config", "config_app.yaml")
+
+directiorio_archivos_mision = os.path.join(script_dir, "devices")
 
 
 # # Ejemplo de uso del decorador
@@ -56,15 +59,13 @@ class App:
             apollo11.run()
 
             # Ejecuta generador_archivos periódicamente
-            # generador_archivos()
-
-            # Mantén el programa en ejecución
             while True:
-                time.sleep(1)
-            # if generador_archivos:
-            # llamar función principal de una clase para generarlos (entrada)
-            # pass
-            # elif generar_reportes:
-            # llamar función principal de una clase para generarlos (entrada)
+                generar_archivos_mision(
+                    num_archivos=config.cantidad_archivos_generados,
+                    misiones=config.misiones.keys(),
+                    directorio=directiorio_archivos_mision,
+                )
+                time.sleep(config.periodicidad)
+
         except Exception as e:
             logger.error(e)

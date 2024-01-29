@@ -1,10 +1,10 @@
 import random
 import os
+from typing import Dict, List
 import yaml
 from datetime import datetime
-from typing import List, Dict
 
-from se_supone import generar_reportes
+from app.reportes.generar_contenido import generar_reportes
 
 
 def generar_nombre_archivo(mission_code: str, num: int) -> str:
@@ -122,7 +122,9 @@ def generar_contenido_archivo(mission_code: str, num: int) -> str:
         raise
 
 
-def generar_archivos_mision(num_archivos: int, directorio: str) -> None:
+def generar_archivos_mision(
+    num_archivos: Dict[str, int], misiones: List[str], directorio: str
+) -> None:
     """
     Genera archivos de misiones con datos aleatorios y los guarda en un directorio.
 
@@ -135,8 +137,8 @@ def generar_archivos_mision(num_archivos: int, directorio: str) -> None:
         if not os.path.exists(directorio):
             os.makedirs(directorio)
 
-        for i in range(1, num_archivos + 1):
-            mission_code = random.choice(["ORBONE", "CLNM", "TMRS", "GALXONE", "UNKN"])
+        for i in range(num_archivos["minimo"], num_archivos["maximo"] + 1):
+            mission_code = random.choice(misiones)
             nombre_archivo = generar_nombre_archivo(mission_code, i)
             ruta_completa = os.path.join(directorio, nombre_archivo)
             contenido_archivo = generar_contenido_archivo(mission_code, i)
@@ -144,17 +146,16 @@ def generar_archivos_mision(num_archivos: int, directorio: str) -> None:
             with open(ruta_completa, "w") as file:
                 file.write(contenido_archivo)
     except Exception as e:
-        print(f"Error al generar archivos de misiones: {e}")
-        raise
+        raise Exception(f"Error al generar archivos de misiones: {e}")
 
 
-if __name__ == "__main__":
-    """
-    Punto de entrada principal del script.
-    """
-    try:
-        num_archivos = random.randint(50, 50)
-        generar_archivos_mision(num_archivos, "uuid")
-        generar_reportes("uuid", "devices")
-    except Exception as e:
-        print(f"Error en la ejecución del programa: {e}")
+# if __name__ == "__main__":
+#     """
+#     Punto de entrada principal del script.
+#     """
+#     try:
+#         num_archivos = random.randint(50, 50)
+#         generar_archivos_mision(num_archivos, "uuid")
+#         generar_reportes("uuid", "devices")
+#     except Exception as e:
+#         print(f"Error en la ejecución del programa: {e}")
