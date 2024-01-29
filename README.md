@@ -220,8 +220,12 @@ estado_dispositivo:
    aplicación. Luego, ejecuta el siguiente comando:
 
 ```bash
-python apolo-11.py --periodicidad [periodicidad_ejecucion]
+python apolo-11.py --periodicidad [-p periodicidad_ejecucion] --level [-l logging_level]
 ```
 
-**NOTA**: El valor del párametro `periodicidad` debe ser un entero mayor que
-cero.
+**NOTA**:
+
+- El valor del párametro `periodicidad` debe ser un entero mayor que cero.
+- El valor del párametro `logging_level` es un entero y debe tener uno de los
+  siguientes valores: NOTSET = 0, DEBUG = 10, INFO = 20, WARNING = 30, ERROR =
+  40, CRITICAL = 50

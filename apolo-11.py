@@ -1,8 +1,10 @@
 # importan librerías
 import argparse
+import logging
 import os
 from typing import Any, Dict, Optional
 from app.config.config_argparse import get_app_args
+from app.config.config_logging import get_logger
 from app.main.apollo11 import Apollo11
 from app.models.config_model import ConfigModel
 from app.utilities.uso_yaml import leer_yaml
@@ -24,7 +26,6 @@ class App:
 
             # obtiene valores de los argumentos
             args: argparse.Namespace = get_app_args(config.logging_level)
-            print(args.periodicidad, args.logging_level)
 
             # actualiza los valores de la configuración por defecto
             if args.periodicidad:
@@ -33,6 +34,14 @@ class App:
             if args.logging_level:
                 config.logging_level = args.logging_level
 
+            # obtiene el logger
+            logger: logging.Logger = get_logger(
+                formato_fecha_log=config.formato_fecha_log,
+                formato_contenido_log=config.formato_contenido_log,
+                nivel_logging=config.logging_level,
+            )
+
+            logger.info("Iniciando programa")
             apollo11 = Apollo11(config)
 
             # ejecuta el programa
@@ -42,7 +51,5 @@ class App:
             # pass
             # elif generar_reportes:
             # llamar función principal de una clase para generarlos (entrada)
-            # pass
-            # manejo de excepción
         except Exception as e:
-            print(e)
+            logger.error(e)
