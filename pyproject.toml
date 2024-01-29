@@ -1,13 +1,25 @@
 [tool.poetry]
 name = "app"
 version = "0.1.0"
-description = ""
-authors = ["sebastianiv21 <seluti98@gmail.com>"]
+description = "Python project for the CodingUpMyFuture bootcamp"
+authors = ["sebastianiv21 <seluti98@gmail.com>", "AlvaroJose09 <ajosep108816@gmail.com>", "LeoCometa <leonardo.ctm33@gmail.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/usuario/repo"
+keywords = ["python", "apollo11", "codingupmyfuture"]
+    
 
 [tool.poetry.dependencies]
 python = "^3.11"
+pandas = "^2.2.0"
+sphinx = "^7.2.6"
+pydantic = "^2.5.3"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+flake8 = "^7.0.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,23 +1,20 @@
-import datetime
+from datetime import datetime
+from ..config.config_log import logger
 
 
-def generar_nombre_archivo(reporte):
+def generar_nombre_archivo(reporte: str) -> str:
     """
     Genera un nombre de archivo siguiendo el estándar APLSTATS-[REPORTE]-ddmmyyHHMISS.log.
 
-    Parámetros:
+    Args:
     - reporte (str): El nombre del reporte para incluir en el nombre del archivo.
 
-    Retorna:
+    Returns:
     - str: El nombre de archivo generado.
-
-    Ejemplo de uso:
-    >>> generar_nombre_archivo("REPORTE1")
-    'APLSTATS-REPORTE1-260124152345.log'
     """
     try:
         # Obtener la fecha y hora actual
-        fecha_hora_actual = datetime.datetime.now()
+        fecha_hora_actual = datetime.now()
 
         # Formatear la fecha y hora según el estándar especificado
         formato_fecha_hora = fecha_hora_actual.strftime("%d%m%y%H%M%S")
@@ -28,13 +25,8 @@ def generar_nombre_archivo(reporte):
         return nombre_archivo
 
     except Exception as e:
-        # Manejar cualquier excepción y mostrar un mensaje de error
-        return f"Error al generar el nombre del archivo: {str(e)}"
-
-
-# Ejemplo de uso
-try:
-    nombre_archivo_generado = generar_nombre_archivo("REPORTE1")
-    print(nombre_archivo_generado)
-except Exception as e:
-    print(f"Error: {str(e)}")
+        # Manejar cualquier excepción y mostrar un mensaje de error en el logger
+        logger.error(
+            f"Error al generar el nombre del archivo para el reporte '{reporte}': {str(e)}"
+        )
+        return ""

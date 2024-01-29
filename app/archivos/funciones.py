@@ -33,8 +33,7 @@ def generar_estado_dispositivo() -> str:
     str: Estado aleatorio del dispositivo.
     """
     try:
-        estados = ['excellent', 'good', 'warning',
-                   'faulty', 'killed', 'unknown']
+        estados = ["excellent", "good", "warning", "faulty", "killed", "unknown"]
         return random.choice(estados)
     except Exception as e:
         print(f"Error al generar el estado del dispositivo: {e}")
@@ -52,9 +51,14 @@ def obtener_nombre_mision(mission_code: str) -> str:
     str: Nombre de la misión.
     """
     try:
-        misiones = {'ORBONE': 'OrbitOne', 'CLNM': 'ColonyMoon',
-                    'TMRS': 'VacMars', 'GALXONE': 'GalaxyTwo', 'UNKN': 'Unknown'}
-        return misiones.get(mission_code, 'Unknown')
+        misiones = {
+            "ORBONE": "OrbitOne",
+            "CLNM": "ColonyMoon",
+            "TMRS": "VacMars",
+            "GALXONE": "GalaxyTwo",
+            "UNKN": "Unknown",
+        }
+        return misiones.get(mission_code, "Unknown")
     except Exception as e:
         print(f"Error al obtener el nombre de la misión: {e}")
         raise
@@ -68,8 +72,7 @@ def generar_tipo_dispositivo() -> str:
     str: Tipo aleatorio de dispositivo.
     """
     try:
-        tipos_dispositivos = ['Satelites', 'Naves',
-                              'Trajes', 'Vehiculos espaciales']
+        tipos_dispositivos = ["Satelites", "Naves", "Trajes", "Vehiculos espaciales"]
         return random.choice(tipos_dispositivos)
     except Exception as e:
         print(f"Error al generar el tipo de dispositivo: {e}")
@@ -88,19 +91,30 @@ def generar_contenido_archivo(mission_code: str, num: int) -> str:
     str: Contenido del archivo en formato YAML.
     """
     try:
-        fecha_actual = datetime.now().strftime('%d%m%Y%H%M%S')
+        fecha_actual = datetime.now().strftime("%d%m%Y%H%M%S")
 
-        if mission_code == 'UNKN':
-            data = {'date': fecha_actual, 'mission': obtener_nombre_mision(mission_code),
-                    'device_type': generar_tipo_dispositivo(), 'device_status': 'unknown', 'hash': 'unknown'}
+        if mission_code == "UNKN":
+            data = {
+                "date": fecha_actual,
+                "mission": obtener_nombre_mision(mission_code),
+                "device_type": generar_tipo_dispositivo(),
+                "device_status": "unknown",
+                "hash": "unknown",
+            }
         else:
             device_type = f"Device_{num}"
             device_status = generar_estado_dispositivo()
             hash_value = hash(
-                f"{mission_code}{fecha_actual}{device_type}{device_status}")
+                f"{mission_code}{fecha_actual}{device_type}{device_status}"
+            )
 
-            data = {'date': fecha_actual, 'mission': obtener_nombre_mision(mission_code),
-                    'device_type': generar_tipo_dispositivo(), 'device_status': device_status, 'hash': hash_value}
+            data = {
+                "date": fecha_actual,
+                "mission": obtener_nombre_mision(mission_code),
+                "device_type": generar_tipo_dispositivo(),
+                "device_status": device_status,
+                "hash": hash_value,
+            }
 
         return yaml.dump(data, default_flow_style=False)
     except Exception as e:
@@ -122,13 +136,12 @@ def generar_archivos_mision(num_archivos: int, directorio: str) -> None:
             os.makedirs(directorio)
 
         for i in range(1, num_archivos + 1):
-            mission_code = random.choice(
-                ['ORBONE', 'CLNM', 'TMRS', 'GALXONE', 'UNKN'])
+            mission_code = random.choice(["ORBONE", "CLNM", "TMRS", "GALXONE", "UNKN"])
             nombre_archivo = generar_nombre_archivo(mission_code, i)
             ruta_completa = os.path.join(directorio, nombre_archivo)
             contenido_archivo = generar_contenido_archivo(mission_code, i)
 
-            with open(ruta_completa, 'w') as file:
+            with open(ruta_completa, "w") as file:
                 file.write(contenido_archivo)
     except Exception as e:
         print(f"Error al generar archivos de misiones: {e}")
@@ -141,7 +154,7 @@ if __name__ == "__main__":
     """
     try:
         num_archivos = random.randint(50, 50)
-        generar_archivos_mision(num_archivos, 'uuid')
-        generar_reportes('uuid', 'devices')
+        generar_archivos_mision(num_archivos, "uuid")
+        generar_reportes("uuid", "devices")
     except Exception as e:
         print(f"Error en la ejecución del programa: {e}")
