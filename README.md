@@ -223,8 +223,7 @@ estado_dispositivo:
 python apolo-11.py --periodicidad [periodicidad_ejecucion]
 ```
 
-> [!IMPORTANT] El valor del párametro `periodicidad` debe ser un entero mayor
-> que cero.
+**NOTA**: El valor del párametro `periodicidad` debe ser un entero mayor
 
 5. Asegúrate de proporcionar los siguientes argumentos:
 
