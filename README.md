@@ -246,6 +246,13 @@ estados_dispositivo:
    aplicación. Luego, ejecuta el siguiente comando:
 
 ```bash
+poetry shell
+```
+
+5. Ya dentro de nuestro entorno virtual, podemos iniciar el programa con el
+   siguiente comando:
+
+```bash
 python apolo-11.py --periodicidad [-p periodicidad_ejecucion] --level [-l logging_level]
 ```
 
